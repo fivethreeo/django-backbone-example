@@ -1,6 +1,6 @@
 define([
     "app",
-    "app/templates/app_header",
+    "text!app/templates/app_header.html",
     "bootstrap"
 ], function(app, HeaderTpl){
 

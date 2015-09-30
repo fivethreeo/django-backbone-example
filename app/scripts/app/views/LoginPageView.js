@@ -1,7 +1,7 @@
 define([
     "app",
-    "app/templates/app_logged_in",
-    "app/templates/app_login",
+    "text!app/templates/app_logged_in.html",
+    "text!app/templates/app_login.html",
     "parsleyjs"
 ], function(app, LoggedInPageTpl, LoginPageTpl, $){
 
