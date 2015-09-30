@@ -3,7 +3,7 @@
 import os
 from django.utils._os import upath
 import app_manage
-from app_manage.config import DEFAULT_SETTINGS
+from app_manage import defaults
 
 MEDIA_ROOT=os.path.join(os.path.dirname(upath(__file__)), "media")
 STATICFILES_DIRS=[
@@ -13,8 +13,6 @@ STATICFILES_DIRS=[
 TEMPLATE_DIRS=[
   os.path.join(os.path.dirname(upath(__file__)), "../app")
 ]
-MIDDLEWARE_CLASSES=list(DEFAULT_SETTINGS['MIDDLEWARE_CLASSES'])+['livereload.middleware.LiveReloadScript']
-
 if __name__ == '__main__':
     app_manage.main(
         [
@@ -34,7 +32,7 @@ if __name__ == '__main__':
         ),
         STATICFILES_DIRS=STATICFILES_DIRS,
         TEMPLATE_DIRS=TEMPLATE_DIRS,
-        MIDDLEWARE_CLASSES=MIDDLEWARE_CLASSES,
+        #MIDDLEWARE_CLASSES=MIDDLEWARE_CLASSES,
         ROOT_URLCONF='app.urls',
         STATIC_ROOT=app_manage.TempDir(),
         MEDIA_ROOT=os.path.join(os.path.dirname(upath(__file__)), "../media"),

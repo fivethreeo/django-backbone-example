@@ -5,23 +5,25 @@
 require.config({
 	// The shim config allows us to configure dependencies for
 	// scripts that do not call define() to register a module
-	shim: {
-		underscore: {
-			exports: '_'
+	'shim': {
+		'underscore': {
+			'exports': '_'
 		},
-		backbone: {
-			deps: [
+		'backbone': {
+			'deps': [
 				'underscore',
 				'jquery'
 			],
-			exports: 'Backbone'
+			'exports': 'Backbone'
 		}
 	},
-	paths: {
-		jquery: '../jquery/dist/jquery',
-		underscore: '../underscore/underscore',
-		backbone: '../backbone/backbone',
-		parsleyjs: '../parsleyjs/dist/parsleyjs'
+	'paths': {
+		'jquery': '../jquery/dist/jquery',
+		'underscore': '../underscore/underscore',
+		'backbone': '../backbone/backbone',
+		'bootstrap': '../bootstrap/dist/js/bootstrap',
+		'text': '../text/text',
+		'parsleyjs': '../parsleyjs/dist/parsley'
 	}
 });
 require([

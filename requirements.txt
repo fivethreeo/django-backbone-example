@@ -2,5 +2,5 @@ docutils
 django
 -e git+https://github.com/django-tastypie/django-tastypie.git#egg=django-tastypie
 -e git+https://github.com/ojii/django-better-test.git#egg=django-better-test
--e git+https://github.com/ojii/django-app-manage.git#egg=django-app-manage
+-e git+https://github.com/fivethreeo/django-app-manage.git#egg=django-app-manage
 -e git+https://github.com/fivethreeo/django-livereload.git#egg=django-livereload

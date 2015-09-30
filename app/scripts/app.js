@@ -84,7 +84,7 @@ function($, _, Backbone) {
       // Default options, unless specified.
       _.defaults(options || (options = {}), {
         emulateHTTP: Backbone.emulateHTTP,
-        emulateJSON: Backbone.emulateJSON
+        emulateJSON: Backbone.emulateJSON,
         asFormData: Backbone.asFormData
       });
   
@@ -101,7 +101,7 @@ function($, _, Backbone) {
         if (options.asFormData) {
           if (method === 'patch') throw new Error('"patch" method does not work with asFormData');
           params.contentType = false;
-          params.data = Backbone.toFormData(options.attrs || model.toJSON(options)));
+          params.data = Backbone.toFormData(options.attrs || model.toJSON(options));
         }
         else {
           params.contentType = 'application/json';

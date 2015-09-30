@@ -37,7 +37,7 @@ Pasteable commands (linux): ::
   npm install
   npm install -g bower
   bower install
-  gulp lesss 
+  gulp less 
 
   pip install virtualenv
 
@@ -51,14 +51,14 @@ Pasteable commands (win): ::
   npm install
   npm install -g bower
   bower install
-  gulp lesss 
+  gulp less
   
   pip install virtualenv
 
   virtualenv env
   env\Scripts\pip.exe install -r requirements.txt
-  env\Scripts\python.exe django/manage.py syncdb
-  env\Scripts\python.exe django/manage.py runserver
+  env\Scripts\python.exe django\manage.py syncdb
+  env\Scripts\python.exe django\manage.py runserver
   
 Notes
 =====
