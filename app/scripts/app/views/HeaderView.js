@@ -1,6 +1,7 @@
 define([
     "app",
-    "text!app/templates/app_header.html"
+    "text!app/templates/app_header.html",
+    "bootstrap"
 ], function(app, HeaderTpl){
 
     var HeaderView = Backbone.View.extend({
