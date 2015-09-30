@@ -7,13 +7,11 @@ from app_manage.config import DEFAULT_SETTINGS
 
 MEDIA_ROOT=os.path.join(os.path.dirname(upath(__file__)), "media")
 STATICFILES_DIRS=[
-  os.path.join(os.path.dirname(upath(__file__)), "../build/assets"),
-  os.path.join(os.path.dirname(upath(__file__)), "../.tmp/assets"),
-  os.path.join(os.path.dirname(upath(__file__)), "../app/assets")
+  os.path.join(os.path.dirname(upath(__file__)), "../app"),
+  os.path.join(os.path.dirname(upath(__file__)), "../bower_components")
 ]
 TEMPLATE_DIRS=[
-  os.path.join(os.path.dirname(upath(__file__)), "../build"),
-  os.path.join(os.path.dirname(upath(__file__)), "../.tmp")
+  os.path.join(os.path.dirname(upath(__file__)), "../app")
 ]
 MIDDLEWARE_CLASSES=list(DEFAULT_SETTINGS['MIDDLEWARE_CLASSES'])+['livereload.middleware.LiveReloadScript']
 
