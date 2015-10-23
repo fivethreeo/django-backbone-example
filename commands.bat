@@ -3,83 +3,86 @@ setlocal EnableDelayedExpansion
 
 echo Commands:
 echo.
-echo 1: gulp build --dev
-echo 2: gulp serve --dev
-echo 3: gulp build
-echo 4: gulp serve
-echo 5: npm install
-echo 6: bower install
-echo 7: virtualenv
-echo 8: pip install
-echo 9: manage.py
-echo 10: git checkout-index -a --prefix=..\dir\ (export)
+echo 1: npm install
+echo 2: bower install
+echo 3: virtualenv
+echo 4: pip install
+echo 5: gulp
+echo 6: manage.py
+echo 7: git checkout-index -a --prefix=..\dir\ (export)
 echo.
 
 set /p command="Choose command number:"
 
-if /I "%command%" EQU "1" (
-  gulp build --dev
-)
-if /I "%command%" EQU "2" (
-  gulp serve --dev
-)
-if /I "%command%" EQU "3" (
-  gulp build
-)
-if /I "%command%" EQU "4" (
-  gulp serve
-)
-if /I "%command%" EQU "5" (
+if "%command%" EQU "1" goto npm
+if "%command%" EQU "2" goto bower
+if "%command%" EQU "3" goto virtualenv
+if "%command%" EQU "4" goto pip
+if "%command%" EQU "5" goto gulp
+if "%command%" EQU "6" goto manage
+if "%command%" EQU "7" goto checkoutindex
+
+:npm
   set /p args="Arguments:"
   npm install !args!
-)
-if /I "%command%" EQU "6" (
+  goto EOF
+
+:bower
   set /p args="Arguments:"
   bower install !args!
-)
-if /I "%command%" EQU "7" (
+  goto EOF
+
+:virtualenv
   set /p envname="Environment name (default: env):"
-  if /I "!envname!" EQU "" (
+  if "!envname!" EQU "" (
     set envname=env
   )
   set /p sitepackages="Use site packages (y/n default: y):"
-  if /I "!sitepackages!" NEQ "n" (
+  if "!sitepackages!" NEQ "n" (
     set sitepackagesargs=--system-site-packages
   )
   set /p args="Arguments:"
   virtualenv !envname! !sitepackagesargs! !args!
-)
-if /I "%command%" EQU "8" (
+  goto EOF
+
+:pip
   set /p envname="Environment name (default: env):"
-  if /I "!envname!" EQU "" (
+  if "!envname!" EQU "" (
     set envname=env
   )
   set /p install="pip install? (y/n default: y):"
     set install=install
   )
   set /p userequirements="Use requirements (y/n default: y):"
-  if /I "!userequirements!" NEQ "n" (
+  if "!userequirements!" NEQ "n" (
     set /p requirements="Requirements file (default: requirements.txt):"
-    if /I "!requirements!" EQU "" (
+    if "!requirements!" EQU "" (
       set requirements=requirements.txt
     )
     set requirementssargs=-r !requirements!
   )
   set /p args="Arguments:"
   !envname!\Scripts\pip.exe !install! !requirementssargs! !args!
-)
-if /I "%command%" EQU "9" (
+  goto EOF
+
+:gulp
+  set /p args="Arguments:"
+  gulp !args!
+  goto EOF
+
+:manage
   set /p envname="Environment name (default: env):"
-  if /I "!envname!" EQU "" (
+  if "!envname!" EQU "" (
     set envname=env
   )
   set /p args="Arguments:"
   !envname!\Scripts\python.exe django/manage.py !args!
-)
-if /I "%command%" EQU "10" (
-set /p directory="Export to directory (end with slash):"
-if not exist "!directory!\." (
-  mkdir !directory!
-)
-git checkout-index -a --prefix=!directory!
-)
+  goto EOF
+
+:checkoutindex
+  set /p directory="Export to directory (end with slash):"
+  if not exist "!directory!\." (
+    mkdir !directory!
+  )
+  git checkout-index -a --prefix=!directory!
+  goto EOF

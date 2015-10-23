@@ -2,16 +2,13 @@
 
 echo "Commands:"
 echo
-echo "1: gulp build --dev"
-echo "2: gulp serve --dev"
-echo "3: gulp build"
-echo "4: gulp serve"
-echo "5: npm install"
-echo "6: bower install"
-echo "7: virtualenv"
-echo "8: pip install"
-echo "9: manage.py"
-echo "10: git checkout-index -a --prefix=../dir/ (export)"
+echo "1: npm install"
+echo "2: bower install"
+echo "3: virtualenv"
+echo "4: pip install"
+echo "5: gulp"
+echo "6: manage.py"
+echo "7: git checkout-index -a --prefix=../dir/ (export)"
 echo
 
 echo -n "Choose command number:"
@@ -20,28 +17,16 @@ read command
 
 case "$command" in
   "1")
-    gulp build --dev
-    ;;
-  "2")
-    gulp serve --dev
-    ;;
-  "3")
-    gulp build
-    ;;
-  "4")
-    gulp serve
-    ;;
-  "5")
     echo -n "Arguments:"
     read commandarguments
     npm install $commandarguments
     ;;
-  "6")
+  "2")
     echo -n "Arguments:"
     read commandarguments
     bower install $commandarguments
     ;;
-  "7")
+  "3")
     echo -n "Environment name (default: env):"
     read envname
     if [ -z "$envname" ]; then
@@ -56,7 +41,7 @@ case "$command" in
     read commandarguments
     virtualenv $envname $sitepackagesargs $commandarguments
     ;;
-  "8")
+  "4")
     echo -n "Environment name (default: env):"
     read envname
     if [ -z "$envname" ]; then
@@ -81,7 +66,12 @@ case "$command" in
     read commandarguments
     $envname/bin/pip install $install $requirementssargs $commandarguments
     ;;
-  "9")
+  "5")
+    echo -n "Arguments:"
+    read commandarguments
+    gulp $commandarguments
+    ;;
+  "6")
     echo -n "Environment name (default: env):"
     read envname
     if [ -z "$envname" ]; then
@@ -91,7 +81,7 @@ case "$command" in
     read commandarguments
     $envname/bin/python django/manage.py $commandarguments
     ;;
-  "10")
+  "7")
     echo -n "Export to directory (end with backslash):"
     read directory
     if [ ! -d "$directory" ]; then
