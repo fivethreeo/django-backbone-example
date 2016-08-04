@@ -1,11 +1,33 @@
 {
-  "name": "app",
-  "version": "0.0.1",
+  "name": "sopin",
+  "version": "1.0.0",
+  "description": "Nettside for menyer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "meny",
+    "sopin",
+    "sulten"
+  ],
+  "author": "Øyvind Saltvik <oyvind.saltvik@gmail.com> (https://github.com/fivethreeo)",
+  "license": "ISC",
   "dependencies": {
-    "gulp": "^3.9.0",
-    "gulp-less": "^3.0.3",
+    "async": "^1.5.2",
+    "bower": "^1.7.7",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
-    "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1"
+    "gulp-util": "^3.0.7",
+    "jade": "^1.11.0",
+    "opn": "^4.0.0",
+    "prompt": "^1.0.0",
+    "request": "^2.69.0",
+    "requirejs": "^2.1.22",
+    "vinyl": "^1.1.1",
+    "vinyl-ftp": "git+https://github.com/morris/vinyl-ftp.git"
   }
 }

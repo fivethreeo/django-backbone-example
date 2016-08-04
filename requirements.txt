@@ -1,6 +1,5 @@
-docutils
-django
--e git+https://github.com/django-tastypie/django-tastypie.git#egg=django-tastypie
--e git+https://github.com/ojii/django-better-test.git#egg=django-better-test
--e git+https://github.com/fivethreeo/django-app-manage.git#egg=django-app-manage
--e git+https://github.com/fivethreeo/django-livereload.git#egg=django-livereload
+Django==1.9.2
+django-tastypie==0.13.1
+python-dateutil==2.4.2
+python-mimeparse==1.5.1
+six==1.10.0

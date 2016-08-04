@@ -1,0 +1,47 @@
+<%
+
+if (groupby == 'restaurant_type') {
+  var restaurant_changed = false;
+  var dishtype_changed = false;
+
+  if (restaurant != prevmodel.restaurant) { 
+    restaurant_changed = true;
+    var restaurant = restaurants.findWhere({resource_uri:restaurant});
+  }
+  if (dishtype != prevmodel.dishtype) {
+    if (prevmodel) {
+      var prevdishtype = restaurant_dishtypes.findWhere({resource_uri:prevmodel.dishtype});
+    }
+    var dishtype_model = restaurant_dishtypes.findWhere({resource_uri:dishtype});
+    dishtype_changed = true;
+  } 
+  if (prevdishtype) { %>
+    <p>--<%= prevdishtype.get('name') %>--</p> <% 
+  }
+  if (restaurant_changed) { %>
+    <h1><%= restaurant.get('name') %></h1> <% 
+  }
+  if (dishtype_changed) { %>
+    <h2><%= dishtype_model.get('name') %></h2> <% 
+  }
+}
+else {
+  if (sopin_dishtype_flat != prevmodel.sopin_dishtype_flat) { %>
+    <h1><%= sopin_dishtype_flat %></h1> <%
+  } 
+}
+%>
+
+<p><strong><%= name %></strong> <% if (groupby == 'type') { %> (<%= restaurant.name %>)<% } %> </p>
+<p><%= indgredients %></p>
+
+
+
+<% 
+if (groupby == 'restaurant_type') {
+  if (lastmodel) {
+    var dishtype_model = restaurant_dishtypes.findWhere({resource_uri:dishtype}); %>
+    <p>--<%= dishtype_model.get('name') %>--</p> <% 
+  }
+}
+%>

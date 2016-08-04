@@ -1,8 +1,5 @@
-node_modules
-dist
-bower_components
-env
-*.log
-*.pyc
-*.sqlite
-app/css
+bower_components 
+env 
+node_modules 
+static 
+*.pyc 
