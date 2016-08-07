@@ -19,6 +19,11 @@ Windows: ::
     run build.bat
     run run.bat
 
+To build without uglyfi: ::
+
+   set nooptimize=true
+   run build.bat or run.bat
+
 Linux: ::
 
     bash install.sh
@@ -26,6 +31,10 @@ Linux: ::
     gulp manage # type createsuperuser
     gulp build
     gulp serve
+
+To build without uglyfi: ::
+
+    nooptimize=true gulp build or gulp serve
   
 Notes
 =====

@@ -20,12 +20,11 @@ function vinyl_file_gulpstream(vinylfile) {
   }
   return src
 }
-
 gulp.task('js', function (callback) {
 
   var requirejs = require('requirejs');
 
-  var optimize = process.env['nooptimize'] == undefined ? true : false;
+  var optimize = typeof(process.env['nooptimize']) === "undefined";
 
   var config = {
       baseUrl: '',
@@ -41,8 +40,9 @@ gulp.task('js', function (callback) {
         'parsleyjs',
         'backbone-filter'
       ],
-      generateSourceMaps: optimize ? false : true,
-      optimize: optimize ? "none" : "uglify",
+      generateSourceMaps: !optimize,
+      preserveLicenseComments: optimize,
+      optimize: optimize ? "uglify" : "none",
       out: 'static/main.js',
       // The shim config allows us to configure dependencies for
       // scripts that do not call define() to register a module
@@ -115,7 +115,10 @@ gulp.task('build', ['js', 'sass', 'copy'], function () {
 });
 
 
-var python = /^win/.test(process.platform) ? path.join(__dirname, 'env', 'Scripts', 'python.exe') : path.join(__dirname, 'env', 'bin', 'python');
+var python = /^win/.test(process.platform) ? 
+  path.join(__dirname, 'env', 'Scripts', 'python.exe') : 
+  path.join(__dirname, 'env', 'bin', 'python');
+
 var manage = path.join(__dirname, 'django', 'manage.py');
 
 gulp.task('connectdjango', function () {
