@@ -14,16 +14,16 @@ Install virtualenv: ::
 Windows: ::
 
     run install.bat
-    run gulp manage type migrate
-    run gulp manage type createsuperuser
+    run gulp manage # type migrate
+    run gulp manage # type createsuperuser
     run build.bat
     run run.bat
 
 Linux: ::
 
     bash install.sh
-    gulp manage type migrate
-    gulp manage type createsuperuser
+    gulp manage # type migrate
+    gulp manage # type createsuperuser
     gulp build
     gulp serve
   
