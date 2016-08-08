@@ -42,4 +42,4 @@ Notes
 Signup not implemented.
 
 .. _nodejs: https://nodejs.org/
-.. _Python: https://www.python.org/downloads/release/python-2710/
+.. _Python: https://www.python.org/
